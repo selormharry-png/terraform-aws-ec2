@@ -1,4 +1,4 @@
-# compute module
+# terraform-aws-ec2
 
 Creates a complete, minimal public environment on AWS: a VPC with one public subnet and an Internet Gateway, plus a single Amazon Linux 2023 EC2 instance in that subnet. The instance's security group allows SSH **only from the public IP of the machine running Terraform**.
 
@@ -39,8 +39,9 @@ Internet ── IGW ── VPC (vpc_cidr)
 ## Usage
 
 ```hcl
-module "compute" {
-  source = "./modules/compute"
+module "ec2" {
+  source  = "selormharry-png/ec2/aws"
+  version = "1.0.2"
 
   project_name       = "module-training"
   environment        = "dev"
